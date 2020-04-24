@@ -127,3 +127,8 @@ where user_id = 1;
 delete from users
 where id = 1;
 ```
+
+
+# Resources for learning more about Join statements
+
+[PostgreSQL Tutorial - Join](https://www.postgresqltutorial.com/postgresql-joins/)
