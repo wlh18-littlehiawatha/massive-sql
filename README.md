@@ -118,7 +118,7 @@ The above code would result in the following error:
 update or delete on table "users" violates foreign key constraint "user_info_user_id_fkey" on table "user_info"
 ```
 
-because user_info has row that refers to and depends on the row on users that has the primary key with a value of 1. We must first delete the dependent rows before we can delete the row with dependents. Replacing the delete statement from above with the follow will result in a proper deletion.
+because user_info has a row that refers to and depends on the row in users that has the primary key with a value of 1. We must first delete the dependent rows before we can delete the row with dependents. Replacing the delete statement from above with the follow will result in a proper deletion.
 
 ```sql
 delete from user_info
