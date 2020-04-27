@@ -7,6 +7,7 @@ create table users (
 create table user_info (
   id serial primary key,
   first_name varchar(100),
+  middle_name varchar(10),
   last_name varchar(100),
   phone_number varchar(50),
   user_id int unique references users(id)
