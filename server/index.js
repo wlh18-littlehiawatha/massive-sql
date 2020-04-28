@@ -8,6 +8,7 @@ const authCtrl = require("./controllers/authController");
 const userCtrl = require("./controllers/userController");
 const productCtrl = require("./controllers/productController");
 const supplierCtrl = require("./controllers/supplierController");
+const ordersCtrl = require("./controllers/ordersController");
 const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
 app.use(express.json());
@@ -36,14 +37,12 @@ app.get("/api/users", userCtrl.getUsers);
 app.get("/api/users/:userId", userCtrl.getUser);
 app.put("/api/users/:userId", userCtrl.updateUser);
 app.delete("/api/users/:userId", userCtrl.deleteUser);
-// app.get('/api/users/:userid/orders', userCtrl.getUserOrders);
+app.get('/api/users/:userId/orders', userCtrl.getUserOrders);
 
-// ! I haven't finished this yet, I will get that done and push it up to GitHub, but not really needed for our purposes today.
 // Orders Endpoints
-// app.post('/api/orders');
-// app.get('/api/orders');
-// app.put('/api/orders');
-// app.delete('/api/orders');
+app.post('/api/orders', ordersCtrl.createOrder);
+app.get('/api/orders', ordersCtrl.getOrders);
+app.delete('/api/orders/:orderId', ordersCtrl.deleteOrder);
 
 // Products Endpoints
 app.post("/api/products", productCtrl.createProduct);
