@@ -31,4 +31,12 @@ module.exports = {
 
     res.sendStatus(200);
   },
+  getUserOrders: async (req, res) => {
+    const db = req.app.get('db');
+    const { userId } = req.params;
+
+    const userOrders = await db.get_orders_by_user_id([userId]);
+
+    res.status(200).send(userOrders);
+  }
 }
